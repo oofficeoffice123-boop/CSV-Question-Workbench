@@ -1,0 +1,50 @@
+{
+  "sql": "SELECT * FROM data WHERE \"Color\" = 'GREEN' AND \"Price\" < 10000 AND \"Product Name\" LIKE '%kameez%'",
+  "columns": [
+    "ID",
+    "Product Name",
+    "Product Description",
+    "Price",
+    "Availability",
+    "Color",
+    "Img Path",
+    "Product Link"
+  ],
+  "types": [
+    "TEXT",
+    "TEXT",
+    "TEXT",
+    "INTEGER",
+    "TEXT",
+    "TEXT",
+    "TEXT",
+    "TEXT"
+  ],
+  "data": [
+    [
+      "EST23424",
+      "Classic Kameez",
+      "Yarn Dyed | Cotton Polyester Broshia Jacquard",
+      4990,
+      "In Stock",
+      "GREEN",
+      "images\\EST23424",
+      "https://pk.khaadi.com/classic-kameez-est23424-1001790063.html"
+    ],
+    [
+      "EST23202",
+      "Classic Kameez",
+      "Printed Embroidered | Bamber Chiffon",
+      8990,
+      "In Stock",
+      "GREEN",
+      "images\\EST23202",
+      "https://pk.khaadi.com/classic-kameez-est23202-1001789304.html"
+    ]
+  ],
+  "rows": 2,
+  "truncated": false,
+  "source_rows": 400,
+  "max_rows": 100,
+  "max_steps": 100000
+}

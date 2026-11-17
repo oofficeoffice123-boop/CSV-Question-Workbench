@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-tH9HtCqTVQ5SLe/wCD/c+Va+4dQsfbfQjuoO2cw+Qhs='">
+<title>Data report</title>
+<style>
+:root{color-scheme:light dark;--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--line:#d8d8dc;--hd:#f3f3f5;--zebra:#fafafb;--hover:#eef3fb;--bar:#cfe0f7;--link:#0a58c2;--warn:#9a5b00;--acc:#0a58c2}
+@media(prefers-color-scheme:dark){:root{--bg:#161618;--fg:#f0f0f2;--mut:#a0a0a8;--line:#3a3a40;--hd:#232327;--zebra:#1b1b1e;--hover:#22303f;--bar:#274468;--link:#7db3ff;--warn:#f0b050;--acc:#7db3ff}}
+*{box-sizing:border-box}
+body{margin:0 auto;max-width:1300px;padding:24px;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+h1{font-size:22px;margin:0 0 2px}h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:20px 0 6px}
+.meta{color:var(--mut);margin:0}
+pre{background:var(--hd);border:1px solid var(--line);padding:12px;border-radius:6px;overflow-x:auto;white-space:pre-wrap;margin:0 0 4px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace}
+.lim{color:var(--mut);font-size:12px;margin:0}
+button{font:inherit;font-size:13px;text-transform:none;letter-spacing:0;color:var(--fg);background:var(--hd);border:1px solid var(--line);border-radius:6px;padding:3px 10px;cursor:pointer;margin-left:6px}
+button:hover{border-color:var(--acc)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}
+input[type=search]{font:inherit;flex:1 1 260px;max-width:420px;padding:6px 10px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+input[type=search]:focus,th:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+#status{color:var(--mut);font-size:13px}
+.wrap{overflow:auto;max-height:75vh;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:separate;border-spacing:0;min-width:100%}
+th,td{border-bottom:1px solid var(--line);padding:7px 12px;text-align:left;vertical-align:top}
+th{background:var(--hd);position:sticky;top:0;z-index:2;white-space:nowrap;cursor:pointer;user-select:none}
+th.idx{cursor:default}
+th[aria-sort=ascending]::after{content:" \25B2";font-size:10px;color:var(--acc)}
+th[aria-sort=descending]::after{content:" \25BC";font-size:10px;color:var(--acc)}
+th:not(.idx):hover{background:var(--hover)}
+tbody tr:nth-child(even){background:var(--zebra)}tbody tr:hover{background:var(--hover)}
+tr[hidden]{display:none}
+td.idx,th.idx{color:var(--mut);text-align:right;font-size:12px;min-width:3em}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;position:relative;min-width:6.5em}
+td.num .bar{position:absolute;left:0;top:3px;bottom:3px;background:var(--bar);border-radius:0 3px 3px 0;z-index:0}
+td.num .val{position:relative;z-index:1}
+td.null{color:var(--mut);font-style:italic}
+a{color:var(--link);word-break:break-all}
+.warn{color:var(--warn);font-weight:600;margin:12px 0}
+@media print{.wrap{max-height:none;overflow:visible}th{position:static}body{padding:0}.tools,button{display:none}}
+</style></head><body>
+<h1>Data report</h1>
+<p class="meta">2 rows returned from a table of 400</p>
+<h2>SQL receipt <button type="button" id="copy">Copy SQL</button></h2>
+<pre id="sql">SELECT * FROM data WHERE &quot;Color&quot; = &#x27;GREEN&#x27; AND &quot;Price&quot; &lt; 10000 AND &quot;Product Name&quot; LIKE &#x27;%kameez%&#x27;</pre><p class="lim">row limit 100 &middot; step limit 100000</p>
+<h2>Results</h2>
+<div class="tools"><input type="search" id="q" placeholder="Filter rows (all words must match)" aria-label="Filter rows" autocomplete="off">
+<button type="button" id="clear" hidden>Clear</button><span id="status" aria-live="polite"></span></div>
+<div class="wrap"><table id="t"><thead><tr><th scope="col" class="idx" title="Row number">#</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">ID</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Product Name</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Product Description</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Price</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Availability</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Color</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Img Path</th><th scope="col" tabindex="0" role="button" aria-sort="none" title="Click to sort">Product Link</th></tr></thead><tbody>
+<tr><td class="idx">1</td><td>EST23424</td><td>Classic Kameez</td><td>Yarn Dyed | Cotton Polyester Broshia Jacquard</td><td class="num" data-n="4990" title="4990"><span class="val">4,990</span></td><td>In Stock</td><td>GREEN</td><td>images\EST23424</td><td><a href="https://pk.khaadi.com/classic-kameez-est23424-1001790063.html" target="_blank" rel="noopener noreferrer">https://pk.khaadi.com/classic-kameez-est23424-1001790063.html</a></td></tr>
+<tr><td class="idx">2</td><td>EST23202</td><td>Classic Kameez</td><td>Printed Embroidered | Bamber Chiffon</td><td class="num" data-n="8990" title="8990"><span class="val">8,990</span></td><td>In Stock</td><td>GREEN</td><td>images\EST23202</td><td><a href="https://pk.khaadi.com/classic-kameez-est23202-1001789304.html" target="_blank" rel="noopener noreferrer">https://pk.khaadi.com/classic-kameez-est23202-1001789304.html</a></td></tr>
+</tbody></table></div>
+<script>
+(function () {
+  var table = document.getElementById('t');
+  if (!table) return;
+  var tb = table.tBodies[0];
+  var rows = Array.prototype.slice.call(tb.rows).filter(function (r) { return !r.classList.contains('empty'); });
+  var heads = Array.prototype.slice.call(table.tHead.rows[0].cells);
+  var q = document.getElementById('q');
+  var status = document.getElementById('status');
+  var clear = document.getElementById('clear');
+  rows.forEach(function (r, i) {
+    r._i = i;
+    r._t = Array.prototype.slice.call(r.cells, 1).map(function (c) { return c.textContent; }).join(' \u0001 ').toLowerCase();
+  });
+  var sortCol = -1, sortDir = 0;
+
+  function key(row, c) {
+    var cell = row.cells[c];
+    if (cell.hasAttribute('data-null')) return null;
+    if (cell.hasAttribute('data-n')) return parseFloat(cell.getAttribute('data-n'));
+    return cell.textContent.toLowerCase();
+  }
+  function compare(a, b) {
+    if (sortDir === 0) return a._i - b._i;
+    var x = key(a, sortCol), y = key(b, sortCol);
+    if (x === null && y === null) return a._i - b._i;
+    if (x === null) return 1;
+    if (y === null) return -1;
+    var r = (typeof x === 'number' && typeof y === 'number') ? x - y : String(x).localeCompare(String(y), undefined, { numeric: true });
+    return r === 0 ? a._i - b._i : r * sortDir;
+  }
+  function apply() {
+    var needle = q.value.trim().toLowerCase();
+    var words = needle ? needle.split(/\s+/) : [];
+    var shown = 0;
+    rows.slice().sort(compare).forEach(function (r) {
+      var ok = words.every(function (w) { return r._t.indexOf(w) !== -1; });
+      r.hidden = !ok;
+      if (ok) { shown++; r.cells[0].textContent = shown; }
+      tb.appendChild(r);
+    });
+    status.textContent = 'Showing ' + shown.toLocaleString() + ' of ' + rows.length.toLocaleString() + ' rows' +
+      (sortDir ? ', sorted by ' + heads[sortCol].textContent + (sortDir > 0 ? ' (low to high)' : ' (high to low)') : '');
+    clear.hidden = !needle;
+    heads.forEach(function (h, i) {
+      h.setAttribute('aria-sort', i === sortCol && sortDir ? (sortDir > 0 ? 'ascending' : 'descending') : 'none');
+    });
+  }
+  heads.forEach(function (h, i) {
+    if (i === 0) return;
+    function go() {
+      if (sortCol !== i) { sortCol = i; sortDir = 1; }
+      else if (sortDir === 1) sortDir = -1;
+      else if (sortDir === -1) { sortDir = 0; sortCol = -1; }
+      apply();
+    }
+    h.addEventListener('click', go);
+    h.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+    });
+  });
+  q.addEventListener('input', apply);
+  clear.addEventListener('click', function () { q.value = ''; apply(); q.focus(); });
+  var copy = document.getElementById('copy');
+  if (copy) copy.addEventListener('click', function () {
+    var text = document.getElementById('sql').textContent;
+    function done() { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy SQL'; }, 1500); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('sql'));
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  });
+  apply();
+})();
+</script>
+</body></html>
